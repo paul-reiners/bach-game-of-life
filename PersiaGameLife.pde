@@ -28,8 +28,6 @@ int[][] used;
 // while changing the others in the interations
 int[][] cellsBuffer; 
 
-// Pause
-boolean pause = false;
 PImage bg;
 
 void setup() {
