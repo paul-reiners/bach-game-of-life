@@ -153,9 +153,6 @@ void keyPressed() {
       }
     }
   }
-  if (key==' ') { // On/off of pause
-    pause = !pause;
-  }
   if (key=='c' || key == 'C') { // Clear all
     for (int x=0; x<width/cellSize; x++) {
       for (int y=0; y<height/cellSize; y++) {
