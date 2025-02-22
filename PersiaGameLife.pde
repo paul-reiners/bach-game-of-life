@@ -148,6 +148,8 @@ void keyPressed() {
           state = 1;
         }
         cells[x][y] = int(state); // Save state of each cell
+        used[x][y] = int(0);
+        zombieOpacity = 255;
       }
     }
   }
@@ -155,6 +157,8 @@ void keyPressed() {
     for (int x=0; x<width/cellSize; x++) {
       for (int y=0; y<height/cellSize; y++) {
         cells[x][y] = 0; // Save all to zero
+        used[x][y] = int(0);
+        zombieOpacity = 255;
       }
     }
   }
