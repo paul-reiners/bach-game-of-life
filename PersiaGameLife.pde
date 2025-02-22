@@ -87,10 +87,8 @@ void draw() {
   }
   // Iterate if timer ticks
   if (millis()-lastRecordedTime>interval) {
-    if (!pause) {
-      iteration();
-      lastRecordedTime = millis();
-    }
+    iteration();
+    lastRecordedTime = millis();
     if (zombieOpacity > 0) {
       zombieOpacity -= 1;
       zombie = color(0, 200, 200, zombieOpacity);
