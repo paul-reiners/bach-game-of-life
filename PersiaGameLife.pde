@@ -78,11 +78,11 @@ void draw() {
     for (int y=0; y<height/cellSize; y++) {
       if (used[x][y] == 0) {
         if (cells[x][y]==1) {
-          fill(alive, 0); // If dead
+          fill(alive); // If alive
           used[x][y] = int(1);
         }
         else {
-          fill(dead); // If alive
+          fill(dead); // If dead
         }
       } else {
         fill(zombie);
