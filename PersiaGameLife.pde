@@ -97,35 +97,6 @@ void draw() {
     }
   }
 
-  // Create  new cells manually on pause
-  if (pause && mousePressed) {
-    // Map and avoid out of bound errors
-    int xCellOver = int(map(mouseX, 0, width, 0, width/cellSize));
-    xCellOver = constrain(xCellOver, 0, width/cellSize-1);
-    int yCellOver = int(map(mouseY, 0, height, 0, height/cellSize));
-    yCellOver = constrain(yCellOver, 0, height/cellSize-1);
-
-    // Check against cells in buffer
-    if (cellsBuffer[xCellOver][yCellOver]==1) { // Cell is alive
-      cells[xCellOver][yCellOver]=0; // Kill
-      fill(dead); // Fill with kill color
-    }
-    else { // Cell is dead
-      cells[xCellOver][yCellOver]=1; // Make alive
-      fill(alive); // Fill alive color
-    }
-    if (used[xCellOver][yCellOver] == 1) {
-      fill(zombie);
-    }
-  } 
-  else if (pause && !mousePressed) { // And then save to buffer once mouse goes up
-    // Save cells to buffer (so we opeate with one array keeping the other intact)
-    for (int x=0; x<width/cellSize; x++) {
-      for (int y=0; y<height/cellSize; y++) {
-        cellsBuffer[x][y] = cells[x][y];
-      }
-    }
-  }
   saveFrame("frames/#####.tif");
 }
 
