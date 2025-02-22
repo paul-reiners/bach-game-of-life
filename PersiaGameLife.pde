@@ -67,6 +67,9 @@ void setup() {
   // Fill in black in case cells don't cover all the windows
   background(0); 
   bg = loadImage("persia.jpg");
+  if (bg == null) { 
+    background(0); 
+  } 
 }
 
 
