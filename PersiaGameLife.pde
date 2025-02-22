@@ -1,10 +1,17 @@
 /**
  * bach-game-of-life
  * by Paul Reiners.
+ * A variation of Conway's Game of Life with an additional "zombie" state that introduces fading effects over time. It also includes features like:
+ * * Randomized Initial States: Cells start alive with a certain probability.
+ * * Background Image: It uses an image (persia.jpg) as the background.
+ * * Grid Display: Uses a 5-pixel cell size and colors to represent states.
+ * * Zombie Effect: Cells that were once alive fade out over time.
+ * * Frame Saving: Saves each frame as a .tif file in a frames/ folder.
+ * Key Controls:
+ * * R to restart with a new randomized state.
+ * * C to clear the grid.
  */
  
-// TODO Get rid of pause functionality.  Maybe.
-
 // Size of cells
 int cellSize = 5;
 
