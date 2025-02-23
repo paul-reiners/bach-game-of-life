@@ -25,7 +25,7 @@ int lastRecordedTime = 0;
 // Colors for active/inactive cells
 color alive = color(0, 200, 0);
 color dead = color(0);
-color zombie = color(0, 200, 200, 0);
+color zombie;
 int zombieOpacity = 255;
 
 // Array of cells
@@ -36,6 +36,9 @@ int[][] used;
 int[][] cellsBuffer; 
 
 PImage bg;
+int redAvg;
+int greenAvg;
+int blueAvg;
 
 void setup() {
   size (640, 360);
@@ -66,10 +69,26 @@ void setup() {
   }
   // Fill in black in case cells don't cover all the windows
   background(0); 
-  bg = loadImage("persia.jpg");
+  bg = loadImage("persia2.jpg");
   if (bg == null) { 
     background(0); 
   } 
+  loadPixels();
+  int redSum = 0;
+  int greenSum = 0;
+  int blueSum = 0;
+  for (int i = 0; i < width*height; i++) {
+    redSum += red(bg.pixels[i]);
+    greenSum += green(bg.pixels[i]);
+    blueSum += blue(bg.pixels[i]);
+  }
+  redAvg = redSum / (width * height);
+  greenAvg = greenSum / (width * height);
+  blueAvg = blueSum / (width * height);
+  print(redAvg + "\n");
+  print(greenAvg + "\n");
+  print(blueAvg + "\n");
+  zombie = color(redAvg, greenAvg, blueAvg, 0);
 }
 
 
@@ -99,11 +118,11 @@ void draw() {
     lastRecordedTime = millis();
     if (zombieOpacity > 0) {
       zombieOpacity -= 1;
-      zombie = color(0, 200, 200, zombieOpacity);
+      zombie = color(redAvg, greenAvg, blueAvg, zombieOpacity);
     }
   }
 
-  saveFrame("frames/#####.tif");
+  saveFrame("/Users/paulreiners/sketches/bach-game-of-life/frames/#####.tif");
 }
 
 void iteration() { // When the clock ticks
