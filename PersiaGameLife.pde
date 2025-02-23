@@ -1,6 +1,8 @@
 /**
- * bach-game-of-life
+ * persian-game-of-life
  * by Paul Reiners.
+ * Based on Game of Life
+ * by Joan Soler-Adillon.
  * A variation of Conway's Game of Life with an additional "zombie" state that introduces fading effects over time. It also includes features like:
  * * Randomized Initial States: Cells start alive with a certain probability.
  * * Background Image: It uses an image (persia.jpg) as the background.
@@ -69,7 +71,7 @@ void setup() {
   }
   // Fill in black in case cells don't cover all the windows
   background(0); 
-  bg = loadImage("persia2.jpg");
+  bg = loadImage("persia3.jpg");
   if (bg == null) { 
     background(0); 
   } 
@@ -85,9 +87,6 @@ void setup() {
   redAvg = redSum / (width * height);
   greenAvg = greenSum / (width * height);
   blueAvg = blueSum / (width * height);
-  print(redAvg + "\n");
-  print(greenAvg + "\n");
-  print(blueAvg + "\n");
   zombie = color(redAvg, greenAvg, blueAvg, 0);
 }
 
